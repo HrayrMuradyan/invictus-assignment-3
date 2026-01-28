@@ -175,7 +175,7 @@ uvicorn main:app --reload
 - Upload a .docx file in the file field.
 - Click "Execute". The cleaned file will be downloaded automatically.
 
-**A**lternatively, via Terminal:**
+**Alternatively, via Terminal:**
 
 ```bash
 curl -X 'POST' \
