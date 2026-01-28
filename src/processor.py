@@ -77,11 +77,7 @@ def process_document(input_path: Path,
             logger.error(f"Validation FAILED. Output saved to: {issue_doc_path}")
             logger.error(f"Issue log saved to: {issue_log_path}")
             
-            # Return early so that the program doesn't save the document
-            return None, []
-        
-        else:
-            return doc, issues
+        return doc, issues
     else:
         if save:
             # Save normally if everything passed

@@ -13,13 +13,17 @@ TEST_INPUTS_DIR = Path(__file__).parent / "inputs"
 
 def get_test_files():
     """
-    Scans the tests/inputs directory and returns a list of all .docx files.
-    This function is used by pytest to generate dynamic test cases.
+    Scans the tests/inputs directory and returns a list of all .docx files,
+    excluding those that end with '_processed.docx'.
     """
     if not TEST_INPUTS_DIR.exists():
         return []
     
-    files = list(TEST_INPUTS_DIR.glob("*.docx"))
+    # Get all .docx files
+    all_files = TEST_INPUTS_DIR.glob("*.docx")
+    
+    # Filter out files that match the processed pattern
+    files = [f for f in all_files if not f.name.endswith("_processed.docx")]
     
     # Sort files to ensure consistent test order
     return sorted(files)
@@ -47,7 +51,6 @@ def test_financial_report_compliance(input_path):
     # Unpack the results
     _, issues = result
 
-    # --- THE ASSERTION ---
     # Fail the test if the 'issues' list is not empty.
     error_msg = f"Validation failed for file '{input_path.name}' with {len(issues)} issues:\n"
     error_msg += "\n".join(f" - {issue}" for issue in issues)
