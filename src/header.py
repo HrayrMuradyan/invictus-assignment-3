@@ -91,7 +91,7 @@ class CoverPageProcessor:
                 p_to_remove = self.doc.paragraphs[0]
                 
                 # Only delete if it is actually empty
-                if not self._is_row_blank(p_to_remove):
+                if self._is_row_blank(p_to_remove):
                     p_element = p_to_remove._element
                     p_element.getparent().remove(p_element)
                     p_to_remove._p = p_to_remove._element = None
