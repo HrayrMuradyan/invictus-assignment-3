@@ -164,7 +164,7 @@ python scripts/process_file.py -i files/input.docx --validate -v
 **Start the Server**:
 
 ```bash
-uvicorn main:app --reload
+python main.py
 ```
 
 **How to Test the API:**
