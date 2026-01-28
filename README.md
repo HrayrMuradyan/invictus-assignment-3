@@ -128,10 +128,10 @@ A key design decision was how to handle documents that fail the validation step.
 
 ### 1. Environment Setup
 
-First create the environment using the provided `requirements.yml` file:
+First create the environment using the provided `environment.yaml` file:
 
 ```bash
-conda env create -f requirements.yml
+conda env create -f environment.yaml
 ```
 
 Activate the environment:
